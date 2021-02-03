@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.example.springboottest2.dao.CeshiDao">
+    <select id="query" resultType="java.lang.String">
+       select b.ele_name from inpcase.bivariate_front_sheet b where  b.struct_id='ZK_DOCTOR_NAME' and b.ipid='1026244'
+    </select>
+
+
+</mapper>
