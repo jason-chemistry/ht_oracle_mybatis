@@ -3,9 +3,204 @@
 
 
 <mapper namespace="com.example.springboottest2.dao.CeshiDao">
+    <select id="getAllPid" resultType="java.lang.String">
+       select a.ipid from adt.inpatient a,inpcase.front_sheet b
+     where a.ipid = b.ipid and a.discharge_time between '20200101000000' and '20210201000000'
+    </select>
+    <select id="getDept" resultType="java.lang.String">
+       select admission_Dept from adt.inpatient a,inpcase.front_sheet b
+     where a.ipid = b.ipid and a.discharge_time between '20200101000000' and '20210201000000'
+    </select>
+    <select id="getName" resultType="java.lang.String">
+       select a.patient_name from adt.inpatient a,inpcase.front_sheet b
+     where a.ipid = b.ipid and a.discharge_time between '20200101000000' and '20210201000000'
+    </select>
+    <select id="getSex" resultType="java.lang.String">
+       select sex from adt.inpatient a,inpcase.front_sheet b
+     where a.ipid = b.ipid and a.discharge_time between '20200101000000' and '20210201000000'
+    </select>
+    <select id="getAllBid" resultType="java.lang.String">
+       select a.pid from adt.inpatient a,inpcase.front_sheet b
+     where a.ipid = b.ipid and a.discharge_time between '20200101000000' and '20210201000000'
+    </select>
     <select id="query" resultType="java.lang.String">
        select b.ele_name from inpcase.bivariate_front_sheet b where  b.struct_id='ZK_DOCTOR_NAME' and b.ipid='1026244'
     </select>
+    <select id="getZkys" resultType="java.lang.String">
+      select b.ele_value from inpcase.bivariate_front_sheet b where  b.struct_id='ZK_DOCTOR_NAME' and b.ipid=#{0}
+    </select>
+    <select id="getZkhs" resultType="java.lang.String">
+      select b.ele_value from inpcase.bivariate_front_sheet b where  b.struct_id='ZK_NURSE_NAME' and b.ipid=#{0}
+    </select>
+    <select id="getZzys" resultType="java.lang.String">
+      select b.ele_value from inpcase.bivariate_front_sheet b where  b.struct_id='ZZ_DOCTOR_NAME' and b.ipid=#{0}
+    </select>
+
+    <select id="getZrhs" resultType="java.lang.String">
+      select b.ele_value from inpcase.bivariate_front_sheet b where  b.struct_id='ZR_NURSE_NAME' and b.ipid=#{0}
+    </select>
+    <select id="getSfzh" resultType="java.lang.String">
+      select c.cert_no from mpi.patient c where c.pid=#{0}
+    </select>
+    <select id="getZzd" resultType="java.lang.String">
+      select a.principal_diagnosis as zd from adt.inpatient a where a.ipid=#{0}
+    </select>
+    <select id="getZzddm" resultType="java.lang.String">
+      select a.principal_diagnosis_code from adt.inpatient a where a.ipid=#{0}
+    </select>
+    <select id="getCsrq" resultType="java.lang.String">
+     select b.ele_value from inpcase.bivariate_front_sheet b where  b.struct_id='6C124380699149AAA4A5C45D05BABB10' and b.ipid=#{0}
+    </select>
+    <select id="getRyrq" resultType="java.lang.String">
+      select b.ele_value from inpcase.bivariate_front_sheet b where  b.struct_id='5ECA86253148418582A941F86D52832F' and b.ipid=#{0}
+    </select>
+    <select id="getCyrq" resultType="java.lang.String">
+       select b.ele_value from inpcase.bivariate_front_sheet b where  b.struct_id='EC09F19681C9458EA69DC68C2D211AE2' and b.ipid=#{0}
+    </select>
+    <select id="getFffs" resultType="java.lang.String">
+      select b.ele_value from inpcase.bivariate_front_sheet b where  b.struct_id='2E4ECD8761B8464EB569BE6711A0381C' and b.ipid=#{0}
+    </select>
+    <select id="getZytj" resultType="java.lang.String">
+     select b.ele_value from inpcase.bivariate_front_sheet b where  b.struct_id='E7E8E07127D941AF845163D61E6FDB23' and b.ipid=#{0}
+    </select>
+    <select id="getDjczy" resultType="java.lang.String">
+     select b.ele_value from inpcase.bivariate_front_sheet b where  b.struct_id='658B5DBE453540E0B5286EBC93562BD1' and b.ipid=#{0}
+    </select>
+    <select id="getZyts" resultType="java.lang.String">
+     select b.ele_value from inpcase.bivariate_front_sheet b where  b.struct_id='InHopitalDay' and b.ipid=#{0}
+    </select>
+    <select id="getLyfs" resultType="java.lang.String">
+     select b.ele_value from inpcase.bivariate_front_sheet b where  b.struct_id='C5DE92F556E647A9916B6AA423E5B33D' and b.ipid=#{0}
+    </select>
+    <select id="getZfy" resultType="java.lang.String">
+     select b.ele_value from inpcase.bivariate_front_sheet b where  b.struct_id='TOTAL_FEE' and b.ipid=#{0}
+    </select>
+    <select id="getZfje" resultType="java.lang.String">
+      select b.ele_value from inpcase.bivariate_front_sheet b where  b.struct_id='SELF_SUPPORT_MONEY' and b.ipid=#{0}
+    </select>
+    <select id="getYlfwf" resultType="java.lang.String">
+      select b.ele_value from inpcase.bivariate_front_sheet b where  b.struct_id='MEDICAL_SERVICE_FEE' and b.ipid=#{0}
+    </select>
+    <select id="getZlczf" resultType="java.lang.String">
+     select b.ele_value from inpcase.bivariate_front_sheet b where  b.struct_id='CURE_OPERATION_FEE' and b.ipid=#{0}
+    </select>
+    <select id="getHlf" resultType="java.lang.String">
+      select b.ele_value from inpcase.bivariate_front_sheet b where  b.struct_id='NURSE_FEE' and b.ipid=#{0}
+    </select>
+    <select id="getZhyl" resultType="java.lang.String">
+      select b.ele_value from inpcase.bivariate_front_sheet b where  b.struct_id='ELSE_FEE' and b.ipid=#{0}
+    </select>
+    <select id="getBlzdf" resultType="java.lang.String">
+     select b.ele_value from inpcase.bivariate_front_sheet b where  b.struct_id='PATHOLOGY_DIAG_FEE' and b.ipid=#{0}
+    </select>
+
+    <select id="getSyszdf" resultType="java.lang.String">
+     select b.ele_value from inpcase.bivariate_front_sheet b where  b.struct_id='LABORATORY_DIAG_FEE' and b.ipid=#{0}
+    </select>
+    <select id="getYxxzdf" resultType="java.lang.String">
+      select b.ele_value from inpcase.bivariate_front_sheet b where  b.struct_id='VIDEO_DIAG_FEE' and b.ipid=#{0}
+    </select>
+    <select id="getLczdf" resultType="java.lang.String">
+       select b.ele_value from inpcase.bivariate_front_sheet b where  b.struct_id='CLINIC_DIAG_FEE' and b.ipid=#{0}
+    </select>
+    <select id="getFsszl" resultType="java.lang.String">
+     select b.ele_value from inpcase.bivariate_front_sheet b where  b.struct_id='NOT_OPERATION_CURE_FEE' and b.ipid=#{0}
+    </select>
+    <select id="getLcwlzlfy" resultType="java.lang.String">
+      select b.ele_value from inpcase.bivariate_front_sheet b where  b.struct_id='CLINIC_PHYSICS_CURE_FEE' and b.ipid=#{0}
+    </select>
+    <select id="getSszlf" resultType="java.lang.String">
+      select b.ele_value from inpcase.bivariate_front_sheet b where  b.struct_id='OPERATION_CURE_FEE' and b.ipid=#{0}
+    </select>
+    <select id="getMzf" resultType="java.lang.String">
+      select b.ele_value from inpcase.bivariate_front_sheet b where  b.struct_id='ANAESTHESIA_FEE' and b.ipid=#{0}
+    </select>
+    <select id="getSsf" resultType="java.lang.String">
+      select b.ele_value from inpcase.bivariate_front_sheet b where  b.struct_id='OPERATION_FEE' and b.ipid=#{0}
+    </select>
+    <select id="getKff" resultType="java.lang.String">
+     select b.ele_value from inpcase.bivariate_front_sheet b where  b.struct_id='HEALING_FEE' and b.ipid=#{0}
+    </select>
+
+
+    <select id="getZyzlf" resultType="java.lang.String">
+      select b.ele_value from inpcase.bivariate_front_sheet b where  b.struct_id='CHINESE_CURE' and b.ipid=#{0}
+    </select>
+    <select id="getXyf" resultType="java.lang.String">
+      select b.ele_value from inpcase.bivariate_front_sheet b where  b.struct_id='WESTERN_MEDICINE_FEE' and b.ipid=#{0}
+    </select>
+    <select id="getKjywf" resultType="java.lang.String">
+     select b.ele_value from inpcase.bivariate_front_sheet b where  b.struct_id='ANTIBACTERIAL_FEE' and b.ipid=#{0}
+    </select>
+    <select id="getZcyf_mix" resultType="java.lang.String">
+     select b.ele_value from inpcase.bivariate_front_sheet b where  b.struct_id='CHINESE_DRUG_FEE' and b.ipid=#{0}
+    </select>
+    <select id="getZcyf" resultType="java.lang.String">
+       select b.ele_value from inpcase.bivariate_front_sheet b where  b.struct_id='HERBAL_MEDICINE_FEE' and b.ipid=#{0}
+    </select>
+    <select id="getXf" resultType="java.lang.String">
+      select b.ele_value from inpcase.bivariate_front_sheet b where  b.struct_id='BLOOD_FEE' and b.ipid=#{0}
+    </select>
+    <select id="getBdb" resultType="java.lang.String">
+    select b.ele_value from inpcase.bivariate_front_sheet b where  b.struct_id='ALBUMIN_PRODUCE_FEE' and b.ipid=#{0}
+    </select>
+    <select id="getQbd" resultType="java.lang.String">
+        select b.ele_value from inpcase.bivariate_front_sheet b where  b.struct_id='GLOBIN_PRODUCE_FEE' and b.ipid=#{0}
+    </select>
+    <select id="getNxyz" resultType="java.lang.String">
+       select b.ele_value from inpcase.bivariate_front_sheet b where  b.struct_id='CRUOR_PRODUCE_FEE' and b.ipid=#{0}
+    </select>
+    <select id="getZbyz" resultType="java.lang.String">
+     select b.ele_value from inpcase.bivariate_front_sheet b where  b.struct_id='CELL_PRODUCE_FEE' and b.ipid=#{0}
+    </select>
+    <select id="getJcy" resultType="java.lang.String">
+      select b.ele_value from inpcase.bivariate_front_sheet b where  b.struct_id='EOM_FEE' and b.ipid=#{0}
+    </select>
+    <select id="getZly" resultType="java.lang.String">
+      select b.ele_value from inpcase.bivariate_front_sheet b where  b.struct_id='COM_FEE' and b.ipid=#{0}
+    </select>
+    <select id="getSsy" resultType="java.lang.String">
+     select b.ele_value from inpcase.bivariate_front_sheet b where  b.struct_id='OOM_FEE' and b.ipid=#{0}
+    </select>
+    <select id="getQt" resultType="java.lang.String">
+      select b.ele_value from inpcase.bivariate_front_sheet b where  b.struct_id='ELSE_CHARGE' and b.ipid=#{0}
+    </select>
+    <select id="getWeight" resultType="java.lang.String">
+      select dd from ( select t.xml_cont.extract('//document/structs/struct[@id="B2E7665D56EA454C9D2BA1C190577965"]/@text') .getStringVal() as dd from nursing.module_bill t where ipid=#{0}   and tpl_name='一般体格检查' order by create_time ) where rownum='1'
+    </select>
+
+    <select id="getHeight" resultType="java.lang.String">
+      select dd from ( select t.xml_cont.extract('//document/structs/struct[@id="CAD67934234A48E2809300CEBAED841B"]/@text') .getStringVal() as dd from nursing.module_bill t where ipid=#{0}  and tpl_name='一般体格检查' order by create_time ) where rownum='1'
+    </select>
+    <select id="getZs" resultType="java.lang.String">
+        select d.chief_complaint from inpcase.hospital_record  d where ipid=#{0}
+    </select>
+    <select id="getCydy" resultType="java.lang.String">
+      select cydy from (select wm_concat(order_content) as cydy from inpord.medical_order where ipid=#{0} and  order_class='OUT')
+    </select>
+    <select id="getWsgj" resultType="java.lang.String">
+      select dd from ( select t.xml_cont.extract('//document/structs/struct[@id="Sum1"]/@text') .getStringVal() as dd from nursing.module_bill t where ipid=#{0}  and tpl_name='外显攻击行为评估表（新）' order by create_time ) where rownum='1'
+    </select>
+    <select id="getZswxx" resultType="java.lang.String">
+     select dd from ( select t.xml_cont.extract('//document/structs/struct[@id="zf1"]/@text') .getStringVal() as dd from nursing.module_bill t where ipid=#{0}  and tpl_name='自杀危险性因素评估表' order by create_time ) where rownum='1'
+    </select>
+
+    <select id="getAdl" resultType="java.lang.Long">
+       select ele_value from nursing.grid_bill_ele where ipid=#{0} and grid_config_sn='15119554072000085013' and ele_name='总分' and grid_bill_sn in (
+select grid_bill_sn from (select * from nursing.grid_bill where ipid=#{0} and grid_config_sn='15119554072000085013'
+order by create_time ) where rownum='1')
+    </select>
+    <select id="getBhxyssj" resultType="java.lang.String">
+     select min(start_time) as tt from inpord.medical_order where order_content='保护性约束' and ipid=#{0}
+    </select>
+    <select id="getBhxyscs" resultType="java.lang.String">
+      select count(ipid) tt from inpord.medical_order where order_content='保护性约束' and ipid=#{0}
+    </select>
+    <select id="getNorse" resultType="java.lang.String">
+      select dd from ( select t.xml_cont.extract('//document/structs/struct[@id="SUMC1"]/@text') .getStringVal() as dd from nursing.module_bill t where ipid=#{0}  and tpl_name='护士用住院病人观察量表（NOSIE）' order by create_time ) where rownum='1'
+    </select>
+
+
 
 
 </mapper>

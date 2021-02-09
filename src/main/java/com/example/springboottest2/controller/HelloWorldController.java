@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
@@ -34,6 +35,13 @@ public class HelloWorldController {
     public String query(){
         System.out.println(ceshiService.query());
         return ceshiService.query();
+    }
+
+    @RequestMapping("/query1")
+    public String getAllPid() throws IOException {
+        ceshiService.getAllMessage();
+
+        return "成功";
     }
 
 
