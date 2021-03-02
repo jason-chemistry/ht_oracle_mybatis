@@ -3,6 +3,9 @@
 
 
 <mapper namespace="com.example.springboottest2.dao.CeshiDao">
+    <select id="query" resultType="java.lang.String">
+       select b.ele_name from inpcase.bivariate_front_sheet b where  b.struct_id='ZK_DOCTOR_NAME' and b.ipid='1026244'
+    </select>
     <select id="getAllPid" resultType="java.lang.String">
        select a.ipid from adt.inpatient a,inpcase.front_sheet b
      where a.ipid = b.ipid and a.discharge_time between '20200101000000' and '20210201000000'
@@ -22,9 +25,6 @@
     <select id="getAllBid" resultType="java.lang.String">
        select a.pid from adt.inpatient a,inpcase.front_sheet b
      where a.ipid = b.ipid and a.discharge_time between '20200101000000' and '20210201000000'
-    </select>
-    <select id="query" resultType="java.lang.String">
-       select b.ele_name from inpcase.bivariate_front_sheet b where  b.struct_id='ZK_DOCTOR_NAME' and b.ipid='1026244'
     </select>
     <select id="getZkys" resultType="java.lang.String">
       select b.ele_value from inpcase.bivariate_front_sheet b where  b.struct_id='ZK_DOCTOR_NAME' and b.ipid=#{0}
